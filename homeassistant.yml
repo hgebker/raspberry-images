@@ -4,7 +4,7 @@ services:
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
       - /home/hgebk/homeassistant:/config
-      - /etc/localtime:/etc/localtime:ro
+      - /home/hgebk/nas-home/backups/homeassistant:/config/backups
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
     privileged: true
