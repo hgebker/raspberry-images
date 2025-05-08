@@ -3,10 +3,10 @@ services:
     container_name: homeassistant
     image: "home-assistant/home-assistant:stable"
     volumes:
-      - /home/hgebk/homeassistant:/config
-      - /home/hgebk/nas-home/backups/homeassistant:/config/backups
+      - /apps/homeassistant:/config
+      - /home/hgebk/nas-home/backups/homeassistant:/config/backups # NAS directly mounted to backup directoy
       - /run/dbus:/run/dbus:ro
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock # Docker daemon socket for monitoring
     restart: unless-stopped
     privileged: true
     network_mode: host
