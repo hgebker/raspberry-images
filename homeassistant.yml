@@ -1,7 +1,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: "home-assistant/home-assistant:stable"
+    image: "homeassistant/home-assistant:stable"
     volumes:
       - /apps/homeassistant:/config
       - /home/hgebk/nas-home/backups/homeassistant:/config/backups # NAS directly mounted to backup directoy
