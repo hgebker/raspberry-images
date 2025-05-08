@@ -1,7 +1,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:stable"
+    image: "home-assistant/home-assistant:stable"
     volumes:
       - /home/hgebk/homeassistant:/config
       - /home/hgebk/nas-home/backups/homeassistant:/config/backups
