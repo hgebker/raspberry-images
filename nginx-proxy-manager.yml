@@ -23,4 +23,4 @@ services:
 networks:
   default:
     external: true
-    name: public
+    name: public-services
