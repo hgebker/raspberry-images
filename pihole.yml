@@ -6,7 +6,7 @@ services:
     ports:
       # DNS Ports
       - "53:53/tcp"
-      - "53:53/udp"
+      #- "53:53/udp"
       # Default HTTP Port
       - "8080:80/tcp"
       # Default HTTPs Port. FTL will generate a self-signed certificate
