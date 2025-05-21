@@ -8,4 +8,4 @@ services:
       - /apps/filebrowser/settings.json:/.filebrowser.json
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "7333:80"
