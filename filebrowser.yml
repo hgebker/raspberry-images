@@ -7,5 +7,6 @@ services:
       - /apps/filebrowser/database:/database
       - /apps/filebrowser/config:/config
     restart: unless-stopped
+    user: "${UID}:${GID}"
     ports:
       - "7333:80"
