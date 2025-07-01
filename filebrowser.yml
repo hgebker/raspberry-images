@@ -4,8 +4,8 @@ services:
     image: "filebrowser/filebrowser:latest"
     volumes:
       - /:/srv
-      - /apps/filebrowser/database.db:/database.db
-      - /apps/filebrowser/settings.json:/.filebrowser.json
+      - /apps/filebrowser/database:/database
+      - /apps/filebrowser/config:/config
     restart: unless-stopped
     ports:
       - "7333:80"
