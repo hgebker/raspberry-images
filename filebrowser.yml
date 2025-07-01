@@ -3,7 +3,7 @@ services:
     container_name: filebrowser
     image: "filebrowser/filebrowser:latest"
     volumes:
-      - /:/srv
+      - /home/hgebk:/srv
       - /apps/filebrowser/database:/database
       - /apps/filebrowser/config:/config
     restart: unless-stopped
