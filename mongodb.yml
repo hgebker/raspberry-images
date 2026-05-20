@@ -13,7 +13,7 @@ services:
     ports:
       - "27007:27017"
     volumes:
-      - mongo-data-dev:/data/db
+      - mongo-data-prod:/data/db
 
 volumes:
   mongo-data-dev:
