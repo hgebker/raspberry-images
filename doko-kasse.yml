@@ -17,7 +17,7 @@ services:
     ports:
       - "5001:5000"
     environment:
-      MONGODB_URI: "mongodb://mondodb-dev:27017/dokokasse"
+      MONGODB_URI: "mongodb://mongodb-dev:27017/dokokasse"
 
 networks:
   default:
