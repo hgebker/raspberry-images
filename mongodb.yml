@@ -18,3 +18,8 @@ services:
 volumes:
   mongo-data-dev:
   mongo-data-prod:
+
+networks:
+  default:
+    external: true
+    name: doko-kasse
