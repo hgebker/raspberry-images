@@ -1,7 +1,7 @@
 services:
   mongodb-dev:
     container_name: mongodb-dev
-    image: "mongo:7"
+    image: "mongo:4"
     ports:
       - "27017:27017"
     volumes:
@@ -9,7 +9,7 @@ services:
 
   mongodb-prod:
     container_name: mongodb-prod
-    image: "mongo:7"
+    image: "mongo:4"
     ports:
       - "27007:27017"
     volumes:
