@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   doko-kasse:
-    image: hgebker/doko-kasse:1.0.0
+    image: hgebker/doko-kasse:v1.0.0
     container_name: doko-kasse
     restart: unless-stopped
     ports:
