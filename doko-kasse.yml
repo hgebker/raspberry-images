@@ -2,14 +2,13 @@ version: "3.8"
 
 services:
   doko-kasse:
-    image: hgebker/doko-kasse:v1.0.0
+    image: hgebker/doko-kasse:2.0.0
     container_name: doko-kasse
     restart: unless-stopped
     ports:
      - '5000:5000'
     environment:
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_KEY=${AWS_SECRET_KEY}
+      MONGODB_URI: "mongodb://mongodb-prod:27017/dokokasse"
 
   doko-kasse-int:
     image: hgebker/doko-kasse:main
