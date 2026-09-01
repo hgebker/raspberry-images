@@ -1,0 +1,24 @@
+services:
+  mvp-vote:
+    container_name: mvp-vote
+    image: hgebker/vfl-mvp-polls:latest
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: /data/local.db
+      SESSION_SECRET: ${SESSION_SECRET}
+    volumes:
+      - ./data:/data
+
+  # One-off migration runner, not started by `docker compose up` (profile-gated).
+  # Run after pulling a new image / before first start:
+  #   docker compose --profile tools run --rm mvp-vote-migrate
+  mvp-vote-migrate:
+    container_name: mvp-vote-migrate
+    image: hgebker/vfl-mvp-polls:migrator
+    profiles: ['tools']
+    environment:
+      DATABASE_URL: /data/local.db
+    volumes:
+      - ./data:/data
