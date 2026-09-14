@@ -14,7 +14,7 @@ services:
 
   mvp-vote-prod:
     container_name: mvp-vote-prod
-    image: hgebker/vfl-mvp-polls:1.1.0
+    image: hgebker/vfl-mvp-polls:1.2.0
     restart: unless-stopped
     ports:
       - '3001:3000'
