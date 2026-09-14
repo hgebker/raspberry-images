@@ -8,6 +8,7 @@ services:
     environment:
       DATABASE_URL: /data/local.db
       SESSION_SECRET: ${SESSION_SECRET_STAGING}
+      DEVOPS_TOKEN: ${DEVOPS_TOKEN}
     volumes:
       - staging-data:/data
 
@@ -20,6 +21,7 @@ services:
     environment:
       DATABASE_URL: /data/local.db
       SESSION_SECRET: ${SESSION_SECRET_PROD}
+      DEVOPS_TOKEN: ${DEVOPS_TOKEN}
     volumes:
       - prod-data:/data
 
