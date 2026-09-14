@@ -1,24 +1,50 @@
 services:
-  mvp-vote:
-    container_name: mvp-vote
-    image: hgebker/vfl-mvp-polls:main
+  mvp-vote-staging:
+    container_name: mvp-vote-staging
+    image: hgebker/vfl-mvp-polls:latest
     restart: unless-stopped
     ports:
       - '3000:3000'
     environment:
       DATABASE_URL: /data/local.db
-      SESSION_SECRET: ${SESSION_SECRET}
+      SESSION_SECRET: ${SESSION_SECRET_STAGING}
     volumes:
-      - ./data:/data
+      - staging-data:/data
 
-  # One-off migration runner, not started by `docker compose up` (profile-gated).
+  mvp-vote-prod:
+    container_name: mvp-vote-prod
+    image: hgebker/vfl-mvp-polls:1.0.0
+    restart: unless-stopped
+    ports:
+      - '3001:3000'
+    environment:
+      DATABASE_URL: /data/local.db
+      SESSION_SECRET: ${SESSION_SECRET_PROD}
+    volumes:
+      - prod-data:/data
+
+  # One-off migration runners, not started by `docker compose up` (profile-gated).
   # Run after pulling a new image / before first start:
-  #   docker compose --profile tools run --rm mvp-vote-migrate
-  mvp-vote-migrate:
-    container_name: mvp-vote-migrate
+  #   docker compose --profile tools run --rm mvp-vote-migrate-staging
+  #   docker compose --profile tools run --rm mvp-vote-migrate-prod
+  mvp-vote-migrate-staging:
+    container_name: mvp-vote-migrate-staging
     image: hgebker/vfl-mvp-polls:migrator
     profiles: ['tools']
     environment:
       DATABASE_URL: /data/local.db
     volumes:
-      - ./data:/data
+      - staging-data:/data
+
+  mvp-vote-migrate-prod:
+    container_name: mvp-vote-migrate-prod
+    image: hgebker/vfl-mvp-polls:migrator
+    profiles: ['tools']
+    environment:
+      DATABASE_URL: /data/local.db
+    volumes:
+      - prod-data:/data
+
+volumes:
+  staging-data:
+  prod-data:
