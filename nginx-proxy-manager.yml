@@ -12,8 +12,10 @@ services:
     volumes:
       - /apps/nginx-proxy-manager/data:/data
       - /apps/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-    # Uncomment the next line if you uncomment anything in the section
-    # environment:
+    mem_limit: 256m
+    memswap_limit: 256m
+    environment:
+      NODE_OPTIONS: '--max-old-space-size=128'
       # Uncomment this if you want to change the location of the SQLite DB file within the container
       # DB_SQLITE_FILE: "/data/database.sqlite"
 
