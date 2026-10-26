@@ -5,6 +5,8 @@ services:
     image: hgebker/doko-kasse:2.6.4
     container_name: doko-kasse
     restart: unless-stopped
+    mem_limit: 256m
+    memswap_limit: 256m
     ports:
      - '5000:5000'
     environment:
@@ -14,6 +16,8 @@ services:
     image: hgebker/doko-kasse:main
     container_name: doko-kasse-int
     restart: unless-stopped
+    mem_limit: 256m
+    memswap_limit: 256m
     ports:
       - "5001:5000"
     environment:
